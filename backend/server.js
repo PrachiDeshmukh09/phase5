@@ -10,7 +10,7 @@ const PORT = 3000;
 const apiKey = process.env.API_KEY;
 
 app.use(cors()); 
-app.use(express.json());
+app.use(express.json()); 
 
 
 if (!apiKey) {
@@ -19,13 +19,13 @@ if (!apiKey) {
 }
 
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
     res.send("Server is running");
 });
 
 
 app.post("/ask", async (req, res) => {
-    try {
+    try { 
         const userQuestion = req.body.question;
         if (!userQuestion) {
             return res.status(400).json({
@@ -58,7 +58,7 @@ app.post("/ask", async (req, res) => {
         const answer =
             response.data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        if (!answer) {
+        if (!answer) { 
             return res.status(500).json({
                 error: "No answer received from Gemini"
             });
