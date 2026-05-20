@@ -10,7 +10,7 @@ async function askQuestion() {
     answerBox.innerText = "Thinking...";
 
     try {
-        const response = await fetch("https://phase5-9mst.onrender.com/ask", {
+        const response = await fetch("https://phase5-project-0so8.onrender.com/ask",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
